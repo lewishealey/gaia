@@ -9,7 +9,7 @@ const Index = ({data}) => {
 
   return <Layout>
     <SEO title="Ingredients" />
-    <h1>No bullshit ingredients information</h1>
+    <h1>Welcome to the full store</h1>
     <h2>Subtitle here</h2>
 
     <div className="ingredient-list__search">
