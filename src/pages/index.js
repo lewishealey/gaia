@@ -8,9 +8,11 @@ const Index = ({data}) => {
     const [search, setSearch] = useState(null);
 
   return <Layout>
-    <SEO title="Ingredients info you can understand" />
+    <SEO
+    title="Gaia | Simple and jargon-free ingredients directory"
+        description="Learn more about the ingredients in the products you use with our simple and jargon-free explanations."/>
     <h1>Ingredients info you can understand</h1>
-    <h2>Subtitle here</h2>
+    <h2>Learn more about the ingredients in the products you use with our simple and jargon-free explanations.</h2>
 
     <div className="ingredient-list__search">
         <label for="search">Search all {data.ingredients.edges.length} ingredients</label>
