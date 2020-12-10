@@ -35,6 +35,7 @@ module.exports = {
           },
         }
       },
+    `gatsby-plugin-no-index`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
