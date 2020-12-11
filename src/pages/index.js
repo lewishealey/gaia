@@ -3,16 +3,18 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "@layout"
 import SEO from "@seo"
+import Hero from '../images/Illustration.svg'
 
 const Index = ({data}) => {
     const [search, setSearch] = useState(null);
 
-  return <Layout>
-    <SEO
-    title="Gaia | Simple and jargon-free ingredients directory"
-        description="Learn more about the ingredients in the products you use with our simple and jargon-free explanations."/>
-    <h1>Ingredients info you can understand</h1>
-    <h2>Learn more about the ingredients in the products you use with our simple and jargon-free explanations.</h2>
+  return <Layout
+            title="Ingredients info you can understand"
+            subtitle="Learn more about the ingredients in the products you use with our simple and jargon-free explanations.">
+        <SEO
+        title="Gaia | Simple and jargon-free ingredients directory"
+            description="Learn more about the ingredients in the products you use with our simple and jargon-free explanations."/>
+
 
     <div className="ingredient-list__search">
         <label for="search">Search all {data.ingredients.edges.length} ingredients</label>

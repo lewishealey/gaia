@@ -52,6 +52,11 @@ h1 {
     color: $leaf-600;
 }
 
+h2 {
+    line-height: $base * 8;
+}
+
+
 h3 {
     font-size: 18px;
     line-height: $base * 6;
@@ -102,6 +107,45 @@ p {
             }
         }
     }
+}
+
+.hero {
+    background-color: #ECD2B5;
+
+    h1, h2 {
+        color: #173736;
+    }
+
+    h2 {
+        font-weight: 500;
+    }
+
+    &__banner {
+        margin-top: 0;
+        display: block;
+        border: 0;
+
+        @include phone-up {
+            width: 250%;
+        }
+
+        @include tablet-xl-up {
+            width: 100%;
+            height: 200px;
+        }
+    }
+
+    &__container {
+        overflow: hidden;
+
+        @include tablet-xl-up {
+            height: 200px;
+        }
+    }
+}
+
+main {
+    margin-top: 2rem;
 }
 
 .header {
@@ -397,9 +441,9 @@ p {
 
         label {
             display: block;
-            font-size: 1rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .input {
@@ -409,6 +453,7 @@ p {
             padding: 0 1rem;
             font-size: 16px;
             border: 1px solid #CED7D5;
+            margin-bottom: 2rem;
         }
     }
 
