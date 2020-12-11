@@ -1,13 +1,15 @@
 import React from "react"
-import { Link } from "gatsby"
+import SEO from "@seo"
 import Layout from "@layout"
-import rating from "../images/rating.svg"
 
 //https://incidecoder.com/products/pixi-glow-tonic-discontinued-2
 
 function Ingredient({ pageContext }) {
   return (
     <Layout>
+        <SEO
+    title={`${pageContext.Name} | Gaia`}
+        description={`${pageContext.What_is_it} from ${pageContext.Where_it_comes_from}`}/>
         <div className="ingredient" style={{backgroundColor: pageContext.Background, color: "#1A202C"}}>
         <h1 className="ingredient__title">{pageContext.Name}</h1>
 
