@@ -8,7 +8,7 @@ function Ingredient({ pageContext }) {
   return (
     <Layout>
         <SEO
-    title={`${pageContext.Name} | Gaia`}
+    title={`${pageContext.Name}`}
         description={`${pageContext.What_is_it} from ${pageContext.Where_it_comes_from}`}/>
         <div className="ingredient" style={{backgroundColor: pageContext.Background, color: "#1A202C"}}>
         <h1 className="ingredient__title">{pageContext.Name}</h1>
