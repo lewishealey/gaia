@@ -1,6 +1,7 @@
 import React from "react"
 import SEO from "@seo"
 import Layout from "@layout"
+import Slit from "../images/slit.svg"
 
 //https://incidecoder.com/products/pixi-glow-tonic-discontinued-2
 
@@ -10,9 +11,14 @@ function Ingredient({ pageContext }) {
         <SEO
     title={`${pageContext.Name}`}
         description={`${pageContext.What_is_it} from ${pageContext.Where_it_comes_from}`}/>
-        <div className="ingredient" style={{backgroundColor: pageContext.Background, color: "#1A202C"}}>
-        <h1 className="ingredient__title">{pageContext.Name}</h1>
+        <div className="ingredient">
+            <div className="layout">
+                <h1 className="ingredient__title">{pageContext.Name}</h1>
+            </div>
+            <img src={Slit} alt="alt" />
+        </div>
 
+        <div className="layout">
         <ul className="ingredient__summary">
             <li>
                 <span className="ingredient__summary__label">Where it comes from</span>
@@ -53,6 +59,7 @@ function Ingredient({ pageContext }) {
                     </ul>
             </section>
         }
+
     </Layout>
   )
 }

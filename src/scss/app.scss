@@ -143,9 +143,9 @@ p {
     }
 }
 
-main {
-    margin-top: 2rem;
-}
+// main {
+//     margin-top: 2rem;
+// }
 
 .header {
     display: flex;
@@ -257,9 +257,17 @@ main {
 
 
 .ingredient {
-    background-color: #E6F0ED;
-    border-radius: 20px;
-    padding: 1.5rem;
+    background-color: #ECD2B5;
+
+    h1, h2 {
+        color: #173736;
+    }
+
+    img {
+        display: block;
+        border: 0;
+        margin-top: 2rem;
+    }
 
     &__title {
         margin: 0 0 0.5rem 0;
@@ -270,18 +278,21 @@ main {
     }
 
     &__summary {
-        margin: 0;
+        margin: 1rem 0 0 0;
         padding: 0;
 
         li {
             list-style: none;
             margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 1.25rem;
         }
 
         &__label {
             font-weight: 700;
             display: block;
             margin-bottom: 0.25rem;
+            font-size: 1rem;
         }
     }
 

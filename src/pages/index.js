@@ -15,7 +15,7 @@ const Index = ({data}) => {
         title="Gaia | Simple and jargon-free ingredients directory"
             description="Learn more about the ingredients in the products you use with our simple and jargon-free explanations."/>
 
-
+    <div className="layout" style={{marginTop: "2rem"}}>
     <div className="ingredient-list__search">
         <label for="search">Search all {data.ingredients.edges.length} ingredients</label>
         <input className="input" id="search" placeholder={`E.g Limonene`}
@@ -54,6 +54,7 @@ const Index = ({data}) => {
         }): null}
     </ul>
     </section>
+    </div>
   </Layout>
 }
 

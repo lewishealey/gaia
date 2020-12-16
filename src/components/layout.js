@@ -25,6 +25,7 @@ const Layout = ({ title, subtitle, children }) => {
 
   return (
     <>
+    {title ?
         <div className="hero">
             <div className="layout">
                 <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
@@ -35,14 +36,17 @@ const Layout = ({ title, subtitle, children }) => {
                 <img src={Hero} className="hero__banner"/>
             </div>
         </div>
-      <div className="layout">
+: <div className="hero">
+<div className="layout">
+    <Header siteTitle={data.site.siteMetadata?.title || `Title`} /></div></div> }
         <main>{children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
-          © {new Date().getFullYear()} Gaia Store
-        </footer>
-      </div>
+        <div className="layout">
+            <footer style={{
+            marginTop: `2rem`
+            }}>
+            © {new Date().getFullYear()} Gaia Store
+            </footer>
+         </div>
     </>
   )
 }

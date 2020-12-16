@@ -17,6 +17,15 @@ const Header = ({ siteTitle }) => (
           <img src={Logo} width="72" alt="Gaia logo"/>
         </Link>
 
+        <Link
+          to="/"
+          activeStyle={{ color: "#ECD2B5" }}
+          style={{
+            color: `#2a2a2a`,
+            textDecoration: `none`,
+          }}
+        >Back to ingredients</Link>
+
   </header>
 )
 
