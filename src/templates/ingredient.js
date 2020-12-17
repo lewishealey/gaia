@@ -28,8 +28,10 @@ function Ingredient({ pageContext }) {
             }
             {pageContext.What_does_it_do &&
                 <li>
-                    <span className="ingredient__summary__label">What does it do?</span>
-                    {pageContext.What_does_it_do}
+                    <span className="ingredient__summary__label">Potential issues</span>
+                    {pageContext.What_does_it_do ? pageContext.What_does_it_do.map((what) => {
+                        return <span>{what} </span>;
+                    }): null}
                 </li>
             }
             {pageContext.Where_it_comes_from &&
