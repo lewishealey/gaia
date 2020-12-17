@@ -30,7 +30,7 @@ function Ingredient({ pageContext }) {
                 <li>
                     <span className="ingredient__summary__label">What does it do</span>
                     {pageContext.What_does_it_do ? pageContext.What_does_it_do.map((what) => {
-                        return <span>{what} </span>;
+                        return <span>{what}, </span>;
                     }): null}
                 </li>
             }
