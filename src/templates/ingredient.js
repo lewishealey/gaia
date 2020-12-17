@@ -20,28 +20,48 @@ function Ingredient({ pageContext }) {
 
         <div className="layout">
         <ul className="ingredient__summary">
-            <li>
-                <span className="ingredient__summary__label">Where it comes from</span>
-                {pageContext.Where_it_comes_from}
-            </li>
-            <li>
-                <span className="ingredient__summary__label">Product type</span>
-                {pageContext.Product_Type ? pageContext.Product_Type.map((type) => {
-                    return <span>{type} </span>;
-                }): null}
-            </li>
-            <li>
-                <span className="ingredient__summary__label">Countries of origin</span>
-                {pageContext.Countries ? pageContext.Countries.map((country) => {
-                    return <span>{country}, </span>;
-                }): null}
-            </li>
-            <li>
-                <span className="ingredient__summary__label">Potential issues</span>
-                {pageContext.Issues ? pageContext.Issues.map((issue) => {
-                    return <span>{issue}, </span>;
-                }): 'None!'}
-            </li>
+            {pageContext.Scientific_description &&
+                <li>
+                    <span className="ingredient__summary__label">Scientific description</span>
+                    {pageContext.Scientific_description}
+                </li>
+            }
+            {pageContext.What_does_it_do &&
+                <li>
+                    <span className="ingredient__summary__label">What does it do?</span>
+                    {pageContext.What_does_it_do}
+                </li>
+            }
+            {pageContext.Where_it_comes_from &&
+                <li>
+                    <span className="ingredient__summary__label">Where it comes from</span>
+                    {pageContext.Where_it_comes_from}
+                </li>
+            }
+            {pageContext.Product_Type &&
+                <li>
+                    <span className="ingredient__summary__label">Product type</span>
+                    {pageContext.Product_Type ? pageContext.Product_Type.map((type) => {
+                        return <span>{type} </span>;
+                    }): null}
+                </li>
+            }
+            {pageContext.Countries &&
+                <li>
+                    <span className="ingredient__summary__label">Countries of origin</span>
+                    {pageContext.Countries ? pageContext.Countries.map((country) => {
+                        return <span>{country}, </span>;
+                    }): null}
+                </li>
+            }
+            {pageContext.Issues &&
+                <li>
+                    <span className="ingredient__summary__label">Potential issues</span>
+                    {pageContext.Issues ? pageContext.Issues.map((issue) => {
+                        return <span>{issue}, </span>;
+                    }): 'None!'}
+                </li>
+            }
         </ul>
         </div>
         {/* <p><Link to="/ingredients">Back to ingredients</Link></p> */}
