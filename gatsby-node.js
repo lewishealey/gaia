@@ -129,6 +129,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         Where_it_comes_from
                         What_it_does__deodorant_
                         Scientific_description
+                        Detailed_description
                         Questions_to_ask
                         Combination_of
                         Countries

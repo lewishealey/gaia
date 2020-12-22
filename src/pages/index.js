@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "@layout"
 import SEO from "@seo"
-import Hero from '../images/Illustration.svg'
 
 const Index = ({data}) => {
     const [search, setSearch] = useState(null);
@@ -35,7 +34,7 @@ const Index = ({data}) => {
 
         <ul className="ingredient-list">
         {data.ingredients ? data.ingredients.edges.map((ingredient) => {
-        if(search && ingredient.node.data.Name.includes(search)) {
+        if(search && ingredient.node.data.Name.toLowerCase().includes(search.toLowerCase())) {
             return <li>
                     <Link to={`/ingredient/${string_to_slug(ingredient.node.data.Name)}`}>
                     <h3 className="product-group__title">{ingredient.node.data.Name}</h3>
