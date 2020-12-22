@@ -11,7 +11,7 @@ function Ingredient({ pageContext }) {
     <Layout>
         <SEO
     title={`${pageContext.Name}`}
-        description={`${pageContext.What_is_it} from ${pageContext.Where_it_comes_from}`}/>
+        description={pageContext.What_is_it ? pageContext.What_is_it : ""}/>
 
         <div className="ingredient">
             <img src={Slit} alt="alt" />
@@ -31,6 +31,12 @@ function Ingredient({ pageContext }) {
                 <li>
                     <h2 className="ingredient__summary__label">Detailed description</h2>
                     <ReactMarkdown>{pageContext.Detailed_description}</ReactMarkdown>
+                </li>
+            }
+            {pageContext.What_is_it &&
+                <li>
+                    <h2 className="ingredient__summary__label">What is it</h2>
+                    <p>{pageContext.What_is_it}</p>
                 </li>
             }
             {pageContext.What_does_it_do &&

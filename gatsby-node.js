@@ -126,6 +126,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         Redflag
                         What_does_it_do
                         Product_Type
+                        What_is_it
                         Where_it_comes_from
                         What_it_does__deodorant_
                         Scientific_description
