@@ -2,8 +2,6 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import Logo from "../images/logo.svg"
-import Menu from "../images/menu.svg"
-import Cart from "../images/cart.svg"
 
 const Header = ({ siteTitle }) => (
   <header className="header">
