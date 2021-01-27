@@ -36,6 +36,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               }
             }
           }
+
+          types: allAirtable(filter: {queryName: {eq: "TypeData"}}) {
+            edges {
+              node {
+                data {
+                  Name
+                  Ingredients {
+                    data {
+                        Name
+                    }
+                 }
+                  Slug
+                }
+              }
+            }
+          }
+
           products: allAirtable(filter: {queryName: {eq: "ProductData"}}) {
             edges {
               node {
@@ -182,11 +199,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const categoryTemplate = path.resolve(`src/templates/category.js`);
   const productTemplate = path.resolve(`src/templates/product.js`);
   const ingredientTemplate = path.resolve(`src/templates/ingredient.js`);
+  const typeTemplate = path.resolve(`src/templates/type.js`);
 
   result.data.categories.edges.forEach(({ node }) => {
     createPage({
       path: `category/${node.data.Slug}`,
       component: categoryTemplate,
+      context: node.data
+    })
+  })
+  result.data.types.edges.forEach(({ node }) => {
+    createPage({
+      path: `type/${string_to_slug(node.data.Name)}`,
+      component: typeTemplate,
       context: node.data
     })
   })

@@ -7,6 +7,8 @@ import Slit from "../images/slit.svg"
 //https://incidecoder.com/products/pixi-glow-tonic-discontinued-2
 
 function Ingredient({ pageContext }) {
+
+    console.log(pageContext)
   return (
     <Layout>
         <SEO

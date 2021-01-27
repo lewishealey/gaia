@@ -59,7 +59,7 @@ module.exports = {
     {
         resolve: `gatsby-source-airtable`,
         options: {
-          apiKey: `keyml23Di0yMQ6Pdi`, // may instead specify via env, see below
+          apiKey: `keySnzSJGnfPjafyS`, // may instead specify via env, see below
           concurrency: 5, // default, see using markdown and attachments for more information
           tables: [
             {
@@ -109,6 +109,12 @@ module.exports = {
                 baseId: `appPEbBkvn8rwZen5`,
                 tableName: `Reviews`,
                 queryName: `ReviewData`,
+            },
+            {
+                baseId: `appPEbBkvn8rwZen5`,
+                tableName: `ProductTypes`,
+                queryName: `TypeData`,
+                tableLinks: [`Ingredients`],
             },
           ]
         }
