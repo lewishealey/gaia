@@ -26,13 +26,13 @@ function Ingredient({ pageContext }) {
             {pageContext.Scientific_description &&
                 <li>
                     <h2 className="ingredient__summary__label">Scientific description</h2>
-                    <p>{pageContext.Scientific_description}</p>
+                    <p className="ingredient__summary__description">{pageContext.Scientific_description}</p>
                 </li>
             }
             {pageContext.What_is_it &&
                 <li>
                     <h2 className="ingredient__summary__label">What is it</h2>
-                    <p>{pageContext.What_is_it}</p>
+                    <p className="ingredient__summary__description">{pageContext.What_is_it}</p>
                 </li>
             }
             {pageContext.Detailed_description &&
@@ -44,7 +44,7 @@ function Ingredient({ pageContext }) {
             {pageContext.What_does_it_do &&
                 <li>
                     <h2 className="ingredient__summary__label">What does it do</h2>
-                    <p>{pageContext.What_does_it_do ? pageContext.What_does_it_do.map((what, i) => {
+                    <p className="ingredient__summary__description">{pageContext.What_does_it_do ? pageContext.What_does_it_do.map((what, i) => {
                         return <span>{what}{pageContext.What_does_it_do.length !== i+1 && ', '}</span>;
                     }): null}</p>
                 </li>
@@ -52,13 +52,13 @@ function Ingredient({ pageContext }) {
             {pageContext.Where_it_comes_from &&
                 <li>
                     <h2 className="ingredient__summary__label">Where it comes from</h2>
-                    <p>{pageContext.Where_it_comes_from}</p>
+                    <p className="ingredient__summary__description">{pageContext.Where_it_comes_from}</p>
                 </li>
             }
             {pageContext.Product_Type &&
                 <li>
                     <h2 className="ingredient__summary__label">Product type</h2>
-                    <p>{pageContext.Product_Type ? pageContext.Product_Type.map((type, i) => {
+                    <p className="ingredient__summary__description">{pageContext.Product_Type ? pageContext.Product_Type.map((type, i) => {
                         return <span>{type}{pageContext.Product_Type.length !== i+1 && ', '}</span>;
                     }): null}</p>
                 </li>
@@ -66,7 +66,7 @@ function Ingredient({ pageContext }) {
             {pageContext.Countries &&
                 <li>
                     <h2 className="ingredient__summary__label">Countries of origin</h2>
-                    <p>{pageContext.Countries ? pageContext.Countries.map((country, i) => {
+                    <p className="ingredient__summary__description">{pageContext.Countries ? pageContext.Countries.map((country, i) => {
                         return <span>{country}{pageContext.Countries.length !== i+1 && ', '}</span>;
                     }): null}</p>
                 </li>
@@ -74,7 +74,7 @@ function Ingredient({ pageContext }) {
             {pageContext.Issues &&
                 <li>
                     <h2 className="ingredient__summary__label">Potential issues</h2>
-                    <p>{pageContext.Issues ? pageContext.Issues.map((issue, i) => {
+                    <p className="ingredient__summary__description">{pageContext.Issues ? pageContext.Issues.map((issue, i) => {
                         return <span>{issue}{pageContext.Issues.length !== i+1 && ', '}</span>;
                     }): 'None!'}</p>
                 </li>

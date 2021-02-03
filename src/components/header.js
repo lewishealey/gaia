@@ -20,6 +20,7 @@ const Header = ({ siteTitle }) => (
           activeStyle={{ color: "#ECD2B5" }}
           style={{
             color: `#2a2a2a`,
+            fontSize: `16px`,
             textDecoration: `none`,
           }}
         >Back to ingredients</Link>

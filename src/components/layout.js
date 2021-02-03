@@ -42,7 +42,8 @@ const Layout = ({ title, subtitle, children }) => {
         <main>{children}</main>
         <div className="layout">
             <footer style={{
-            marginTop: `2rem`
+            marginTop: `2rem`,
+            fontSize: `14px`
             }}>
             © {new Date().getFullYear()} Gaia Store
             </footer>
