@@ -37,7 +37,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
 
-          types: allAirtable(filter: {queryName: {eq: "TypeData"}}) {
+          products: allAirtable(filter: {queryName: {eq: "TypeData"}}) {
             edges {
               node {
                 data {
@@ -53,85 +53,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
 
-          products: allAirtable(filter: {queryName: {eq: "ProductData"}}) {
-            edges {
-              node {
-                data {
-                    Name
-                    Slug
-                    Meta_Title
-                    Meta_Description
-                    SEO_Keywords
-                    Reviews {
-                        data {
-                          Name
-                          Job
-                          Verified
-                          Thumbnail {
-                            url
-                          }
-                          Type
-                          Title
-                          Description
-                          Materials
-                          Sustainability
-                        }
-                    }
-                    Prices {
-                        data {
-                            Name
-                            Category
-                            Price
-                        }
-                    }
-                    Ingredients {
-                        data {
-                            Name
-                        }
-                    }
-                    Considerations {
-                        data {
-                            Icon
-                            Title
-                            Description
-                        }
-                    }
-                    Insights {
-                        data {
-                            Icon
-                            Title
-                            Description
-                        }
-                    }
-                    Brand
-                    Thumbnail {
-                      thumbnails {
-                        full {
-                          url
-                          width
-                          height
-                        }
-                        large {
-                          url
-                          width
-                          height
-                        }
-                        small {
-                          url
-                          width
-                          height
-                        }
-                      }
-                    }
-                    Categories {
-                      data {
-                        Name
-                      }
-                    }
-                  }
-                }
-              }
-            }
 
             ingredients: allAirtable(filter: {queryName: {eq: "IngredientData"}}, sort: {fields: data___Name, order: ASC}) {
                 edges {
@@ -199,7 +120,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const categoryTemplate = path.resolve(`src/templates/category.js`);
   const productTemplate = path.resolve(`src/templates/product.js`);
   const ingredientTemplate = path.resolve(`src/templates/ingredient.js`);
-  const typeTemplate = path.resolve(`src/templates/type.js`);
 
   result.data.categories.edges.forEach(({ node }) => {
     createPage({
@@ -208,16 +128,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: node.data
     })
   })
-  result.data.types.edges.forEach(({ node }) => {
-    createPage({
-      path: `type/${string_to_slug(node.data.Name)}`,
-      component: typeTemplate,
-      context: node.data
-    })
-  })
   result.data.products.edges.forEach(({ node }) => {
     createPage({
-      path: `product/${node.data.Slug}`,
+      path: `product/${string_to_slug(node.data.Name)}`,
       component: productTemplate,
       context: node.data
     })

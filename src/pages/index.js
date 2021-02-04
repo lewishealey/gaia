@@ -7,6 +7,8 @@ import SEO from "@seo"
 const Index = ({data}) => {
     const [search, setSearch] = useState(null);
 
+    console.log(data)
+
   return <Layout
             title="Ingredients info you can understand"
             subtitle="Learn more about the ingredients in the products you use with our simple and jargon-free explanations.">
@@ -16,7 +18,7 @@ const Index = ({data}) => {
 
     <div className="layout" style={{marginTop: "2rem"}}>
     <div className="ingredient-list__search">
-        <label for="search">Search all {data.ingredients.edges.length} ingredients</label>
+        <label for="search">Search all {data.ingredients.edges.length} ingredients & products</label>
         <input className="input" id="search" placeholder={`E.g Limonene`}
         onKeyDown={(e) => {
             setSearch(e.target.value)
@@ -33,24 +35,28 @@ const Index = ({data}) => {
     <section>
 
         <ul className="ingredient-list">
-        {data.ingredients ? data.ingredients.edges.map((ingredient) => {
+        {data.ingredients?.edges.map((ingredient, i) => {
+            const type = ingredient.queryName === "IngredientData" ? "ingredient" : "product";
+            const slug = string_to_slug(ingredient.node.data.Name);
+
         if(search && ingredient.node.data.Name.toLowerCase().includes(search.toLowerCase())) {
-            return <li>
-                    <Link to={`/ingredient/${string_to_slug(ingredient.node.data.Name)}`}>
+            return <li key={i}>
+                    <Link to={`/${type}/${slug}`}>
                     <h3 className="product-group__title">{ingredient.node.data.Name}</h3>
                 </Link>
             </li>;
         }
         if(!search) {
-            return <li>
-                <Link to={`/ingredient/${string_to_slug(ingredient.node.data.Name)}`}>
+            return <li key={i}>
+                <Link to={`/${type}/${slug}`}>
                     <h3 className="product-group__title">{ingredient.node.data.Name}</h3>
                     </Link>
                 </li>;
         }
 
 
-        }): null}
+        })}
+
     </ul>
     </section>
     </div>
@@ -82,12 +88,13 @@ function string_to_slug (str) {
 
 export const query = graphql`
   query IngredientsQuery {
-    ingredients: allAirtable(filter: {queryName: {eq: "IngredientData"}}, sort: {fields: data___Name, order: ASC}) {
+    ingredients: allAirtable(filter: {queryName: {in: ["IngredientData", "TypeData"]}}, sort: {fields: data___Name, order: ASC}) {
         edges {
           node {
             id
             data {
               Name
+              Slug
               Background
             }
             queryName
