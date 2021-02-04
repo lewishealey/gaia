@@ -36,13 +36,13 @@ const Index = ({data}) => {
 
         <ul className="ingredient-list">
         {data.ingredients?.edges.map((ingredient, i) => {
-            const type = ingredient.data.queryName === "IngredientData" ? "ingredient" : "product";
+            const type = ingredient.node.queryName === "IngredientData" ? "ingredient" : "product";
             const slug = string_to_slug(ingredient.node.data.Name);
 
         if(search && ingredient.node.data.Name.toLowerCase().includes(search.toLowerCase())) {
             return <li key={i}>
                     <Link to={`/${type}/${slug}`}>
-                    <h3 className="product-group__title">{ingredient.node.data.Name}</h3>
+                    <h3 className="product-group__title">{ingredient.node.data.Name} {ingredient.queryName}</h3>
                 </Link>
             </li>;
         }
