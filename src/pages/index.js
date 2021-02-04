@@ -36,7 +36,7 @@ const Index = ({data}) => {
 
         <ul className="ingredient-list">
         {data.ingredients?.edges.map((ingredient, i) => {
-            const type = ingredient.queryName === "IngredientData" ? "ingredient" : "product";
+            const type = ingredient.data.queryName === "IngredientData" ? "ingredient" : "product";
             const slug = string_to_slug(ingredient.node.data.Name);
 
         if(search && ingredient.node.data.Name.toLowerCase().includes(search.toLowerCase())) {
