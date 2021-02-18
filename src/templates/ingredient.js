@@ -9,7 +9,7 @@ import Slit from "../images/slit.svg"
 function Ingredient({ pageContext }) {
 
     console.log(pageContext)
-    const metaTitle = `${pageContext.Name} | What is it | Gaia `;
+    const metaTitle = `${pageContext.Name} | What is it`;
     const metaDesc = pageContext.What_is_it ? pageContext.What_is_it : "";
   return (
     <Layout>
