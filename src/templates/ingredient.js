@@ -9,11 +9,14 @@ import Slit from "../images/slit.svg"
 function Ingredient({ pageContext }) {
 
     console.log(pageContext)
+    const metaTitle = `${pageContext.Name} | What is it | Gaia `;
+    const metaDesc =
   return (
     <Layout>
         <SEO
-    title={`${pageContext.Name}`}
-        description={pageContext.What_is_it ? pageContext.What_is_it : ""}/>
+            title={metaTitle}
+            description={pageContext.What_is_it ? pageContext.What_is_it : ""}
+        />
 
         <div className="ingredient">
             <img src={Slit} alt="alt" />
